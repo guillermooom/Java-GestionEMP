@@ -1,18 +1,21 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import Model.Empleado;
 
 public class EmpleadoController {
 
+	//metodo para ver los datos de un empleado, pasandoselo entero
 	public static void VerEmple(Empleado emp) {
-		System.out.println("*** DATOS EMPLEADO ***");
+		System.out.println("\n*** DATOS EMPLEADO ***");
 		System.out.println("DNI -> "+emp.getDni());
 		System.out.println("NOMBRE -> "+emp.getNombre()+" "+emp.getApellido());
 		System.out.println("SALARIO -> "+emp.getSalario());
 	}
 	
+	//ver todos los empleados del arraylist
 	public static void TodosEmple(ArrayList<Empleado> list) {
 		System.out.println("\n *** EMPLEADOS ***");
 		
@@ -21,6 +24,21 @@ public class EmpleadoController {
 			System.out.println("NOMBRE -> "+emp.getNombre()+" "+emp.getApellido());
 			System.out.println("SALARIO -> "+emp.getSalario());
 			System.out.println("-------------------------------");
+		}
+	}
+	
+	public static void BuscarDni(ArrayList<Empleado> e,String dni) {
+		boolean encontrado=false;
+		
+		for(Empleado emp : e) {
+			if(emp.getDni().equals(dni)) {
+				VerEmple(emp);
+				encontrado=true;
+			}
+		}
+		
+		if(!encontrado) {
+			System.out.println("No se ha encontrado un Empleado con ese DNI");
 		}
 	}
 	

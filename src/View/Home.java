@@ -13,10 +13,7 @@ public class Home {
 		//cracion del Scaner
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("*** GESTION EMPLEADOS ***");
-		System.out.println("1. Ver Todos empleados");
-		System.out.println("0. Salir");
-		System.out.print("-> ");
+		menu();
 		
 		int opc = scan.nextInt();		
 		
@@ -35,10 +32,21 @@ public class Home {
 			switch(opc) {
 			case 1:
 				EmpleadoController.TodosEmple(listaEmp);
+
+			break;
+			
+			case 2:
+				System.out.print("Introduzca el DNI -> ");
+				scan.nextLine();
+				String dni = scan.nextLine();
+				EmpleadoController.BuscarDni(listaEmp, dni);
+			break;
+			
 			}
 			
-			System.out.print("-> ");
-			opc = scan.nextInt();
+			menu();
+			opc = scan.nextInt();	
+			
 		}
 		
 		System.out.println("Saliendo...");
@@ -46,6 +54,14 @@ public class Home {
 		//Cerramos Scaner
 		scan.close();
 		
+	}
+	
+	public static void menu () {
+		System.out.println("\n\n===== GESTION EMPLEADOS =====");
+		System.out.println("1. Ver Todos empleados");
+		System.out.println("2. Buscar Empleado");
+		System.out.println("0. Salir");
+		System.out.print("-> ");
 	}
 	
 
