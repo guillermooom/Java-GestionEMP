@@ -28,6 +28,7 @@ public class EmpleadoController {
 	}
 	
 	public static void BuscarDni(ArrayList<Empleado> e,String dni) {
+		dni = dni.trim();
 		boolean encontrado=false;
 		
 		for(Empleado emp : e) {
@@ -39,6 +40,24 @@ public class EmpleadoController {
 		
 		if(!encontrado) {
 			System.out.println("No se ha encontrado un Empleado con ese DNI");
+		}
+	}
+	
+	public static void BuscarNombre(ArrayList<Empleado> e,String nb) {
+		boolean encontrado=false;
+		nb = nb.trim();
+		
+		for(Empleado emp : e) {
+			String comp = emp.getNombre()+emp.getApellido();
+			if(comp.toLowerCase().contains(nb.toLowerCase())) {
+				System.out.println("Encontrado");
+				VerEmple(emp);
+				encontrado=true;
+			}
+		}
+		
+		if(!encontrado) {
+			System.out.println("No se ha encontrado un Empleado con ese Nombre");
 		}
 	}
 	

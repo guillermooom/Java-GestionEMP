@@ -20,13 +20,15 @@ public class Home {
 		//Creaicon empleado
 		Empleado emp1 = new Empleado("000000000X","Guillermo","Moreno",1200.0);
 		Empleado emp2 = new Empleado("000000000A","Ana","Pedrosas",900.0);
+		Empleado emp3 = new Empleado("000000001A","Ana","Luisa",850.0);
+		Empleado emp4 = new Empleado("000000000L","Luis","Pedrosas",1150.0);
 		
 		//meterlo en un arraylist
 		ArrayList<Empleado> listaEmp = new ArrayList<>();
 		listaEmp.add(emp1);
 		listaEmp.add(emp2);
-		
-		//EmpleadoController.VerEmple(emp1);
+		listaEmp.add(emp3);
+		listaEmp.add(emp4);
 		
 		while(opc != 0) {
 			switch(opc) {
@@ -36,11 +38,44 @@ public class Home {
 			break;
 			
 			case 2:
-				System.out.print("Introduzca el DNI -> ");
 				scan.nextLine();
-				String dni = scan.nextLine();
-				EmpleadoController.BuscarDni(listaEmp, dni);
-			break;
+				busqueda();
+				int o = scan.nextInt();
+				
+				while(o != 0) {
+					switch(o) {
+					case 1:
+						System.out.print("Introduzca el DNI -> ");
+						scan.nextLine();
+						String dni = scan.nextLine();
+						EmpleadoController.BuscarDni(listaEmp, dni);
+						
+					break;
+					
+					case 2:
+						System.out.print("Introduzca el Nombre -> ");
+						scan.nextLine();
+						String nb = scan.nextLine();
+						EmpleadoController.BuscarNombre(listaEmp, nb);
+					break;
+					
+					default:
+						System.out.println("\n--- Opcion no valida ---");
+					
+						busqueda();
+						opc = scan.nextInt();
+					
+					}
+					
+					break;
+					
+				}
+				
+				break;
+				
+			 default:
+				 System.out.println("\n--- Opcion no valida ---");
+		     break;
 			
 			}
 			
@@ -61,6 +96,14 @@ public class Home {
 		System.out.println("1. Ver Todos empleados");
 		System.out.println("2. Buscar Empleado");
 		System.out.println("0. Salir");
+		System.out.print("-> ");
+	}
+	
+	public static void busqueda() {
+		System.out.println("\n*** COMO DESEAS BUSCAR ***");
+		System.out.println("1. DNI");
+		System.out.println("2. Nombre");
+		System.out.println("0. Cancelar");
 		System.out.print("-> ");
 	}
 	
