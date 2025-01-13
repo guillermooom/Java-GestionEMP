@@ -13,6 +13,7 @@ public class EmpleadoController {
 		System.out.println("DNI -> "+emp.getDni());
 		System.out.println("NOMBRE -> "+emp.getNombre()+" "+emp.getApellido());
 		System.out.println("SALARIO -> "+emp.getSalario());
+		System.out.println("AVISOS -> "+emp.getAvisos());
 	}
 	
 	//ver todos los empleados del arraylist
@@ -23,6 +24,7 @@ public class EmpleadoController {
 			System.out.println("DNI -> "+emp.getDni());
 			System.out.println("NOMBRE -> "+emp.getNombre()+" "+emp.getApellido());
 			System.out.println("SALARIO -> "+emp.getSalario());
+			System.out.println("AVISOS -> "+emp.getAvisos());
 			System.out.println("-------------------------------");
 		}
 	}
@@ -58,6 +60,15 @@ public class EmpleadoController {
 		
 		if(!encontrado) {
 			System.out.println("No se ha encontrado un Empleado con ese Nombre");
+		}
+	}
+	
+	public static void DarAviso(ArrayList<Empleado> e,String dni) {
+		dni = dni.trim();
+		for(Empleado emp : e) {
+			if(emp.getDni().equals(dni)) {
+				emp.setAvisos(emp.getAvisos() + 1);
+			}
 		}
 	}
 	

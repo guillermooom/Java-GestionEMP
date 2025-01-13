@@ -18,10 +18,10 @@ public class Home {
 		int opc = scan.nextInt();		
 		
 		//Creaicon empleado
-		Empleado emp1 = new Empleado("000000000X","Guillermo","Moreno",1200.0);
-		Empleado emp2 = new Empleado("000000000A","Ana","Pedrosas",900.0);
-		Empleado emp3 = new Empleado("000000001A","Ana","Luisa",850.0);
-		Empleado emp4 = new Empleado("000000000L","Luis","Pedrosas",1150.0);
+		Empleado emp1 = new Empleado("000000000X","Guillermo","Moreno",1200.0,0);
+		Empleado emp2 = new Empleado("000000000A","Ana","Pedrosas",900.0,0);
+		Empleado emp3 = new Empleado("000000001A","Ana","Luisa",850.0,0);
+		Empleado emp4 = new Empleado("000000000L","Luis","Pedrosas",1150.0,0);
 		
 		//meterlo en un arraylist
 		ArrayList<Empleado> listaEmp = new ArrayList<>();
@@ -73,6 +73,13 @@ public class Home {
 				
 				break;
 				
+			case 3:
+				System.out.print("Introduzca el DNI -> ");
+				scan.nextLine();
+				String dni = scan.nextLine();
+				EmpleadoController.DarAviso(listaEmp, dni);
+			break;
+				
 			 default:
 				 System.out.println("\n--- Opcion no valida ---");
 		     break;
@@ -95,6 +102,7 @@ public class Home {
 		System.out.println("\n\n===== GESTION EMPLEADOS =====");
 		System.out.println("1. Ver Todos empleados");
 		System.out.println("2. Buscar Empleado");
+		System.out.println("3. Dar aviso");
 		System.out.println("0. Salir");
 		System.out.print("-> ");
 	}
