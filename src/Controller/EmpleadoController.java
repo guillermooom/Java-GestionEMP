@@ -21,12 +21,16 @@ public class EmpleadoController {
 	public static void TodosEmple(ArrayList<Empleado> list) {
 		System.out.println("\n *** EMPLEADOS ***\n");
 		
-		for(Empleado emp : list ) {
-			System.out.println("DNI -> "+emp.getDni());
-			System.out.println("NOMBRE -> "+emp.getNombre()+" "+emp.getApellido());
-			System.out.println("SALARIO -> "+emp.getSalario());
-			System.out.println("AVISOS -> "+emp.getAvisos());
-			System.out.println("-------------------------------");
+		if(list.isEmpty()) {
+			System.out.println("No hay ningún empleado contratado");
+		}else {
+			for(Empleado emp : list ) {
+				System.out.println("DNI -> "+emp.getDni());
+				System.out.println("NOMBRE -> "+emp.getNombre()+" "+emp.getApellido());
+				System.out.println("SALARIO -> "+emp.getSalario());
+				System.out.println("AVISOS -> "+emp.getAvisos());
+				System.out.println("-------------------------------");
+			}
 		}
 	}
 	
