@@ -18,7 +18,7 @@ public class Home {
 		int opc = scan.nextInt();		
 		
 		//Creaicon empleado
-		Empleado emp1 = new Empleado("000000000X","Guillermo","Moreno",1200.0,0);
+		Empleado emp1 = new Empleado("000000000X","Guillermo","Moreno",1200.0,2);
 		Empleado emp2 = new Empleado("000000000A","Ana","Pedrosas",900.0,0);
 		Empleado emp3 = new Empleado("000000001A","Ana","Luisa",850.0,0);
 		Empleado emp4 = new Empleado("000000000L","Luis","Pedrosas",1150.0,0);
@@ -31,6 +31,7 @@ public class Home {
 		listaEmp.add(emp4);
 		
 		while(opc != 0) {
+			String dni;
 			switch(opc) {
 			case 1:
 				EmpleadoController.TodosEmple(listaEmp);
@@ -47,7 +48,7 @@ public class Home {
 					case 1:
 						System.out.print("Introduzca el DNI -> ");
 						scan.nextLine();
-						String dni = scan.nextLine();
+						dni = scan.nextLine();
 						EmpleadoController.BuscarDni(listaEmp, dni);
 						
 					break;
@@ -76,8 +77,15 @@ public class Home {
 			case 3:
 				System.out.print("Introduzca el DNI -> ");
 				scan.nextLine();
-				String dni = scan.nextLine();
+				dni = scan.nextLine();
 				EmpleadoController.DarAviso(listaEmp, dni);
+			break;
+			
+			case 4:
+				System.out.print("Introduzca el DNI -> ");
+				scan.nextLine();
+				dni = scan.nextLine();
+				EmpleadoController.Despedir(listaEmp, dni);
 			break;
 				
 			 default:
@@ -101,8 +109,9 @@ public class Home {
 	public static void menu () {
 		System.out.println("\n\n===== GESTION EMPLEADOS =====");
 		System.out.println("1. Ver Todos empleados");
-		System.out.println("2. Buscar Empleado");
-		System.out.println("3. Dar aviso");
+		System.out.println("2. Buscar empleado");
+		System.out.println("3. Dar aviso a un empleado");
+		System.out.println("4. Despedir empleado");
 		System.out.println("0. Salir");
 		System.out.print("-> ");
 	}
